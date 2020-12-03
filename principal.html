@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="style/principalStyle.css"> <!--Css Pagina principal-->
+        <link rel="stylesheet" href="style/popupStyle.css"> <!--Css PopUp-->
+        <link rel="stylesheet" href="style/calendarStyle.css"> <!--Css Calendario-->
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js"></script> 
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/core.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+        <title>MyPO</title>
+    </head>
+    <script src="script/scriptPrincipal.js"></script>
+
+    <!--Cabezera de la página web-->
+    <header>
+        <div class="header" id="idEncabezado">
+            <div>
+                <!--Logo-->
+                <div class="logo"><a href="javascript:location.reload()"><img id="idLogo" src="images/prueba.png"></a></div> 
+                <!--BUscador-->
+                <button type="button" class="buscadorBoton" onclick="abrirBuscador()">
+                    <div class="iconoBusqueda"><img id="idBusqueda" src="images/busqueda.png"></div>
+                    <div class="textAreaBusqueda"><textarea name="textarea" rows="1" cols="75" >Buscar...</textarea></div>
+                </button>
+                <!--Ajustes-->
+                <div class="ajustes"><button type="button" class="ajustesBoton" onclick="openAjustes()"><img id="idAjustes" src="images/ajustes.png"></button></div>
+
+                <!--Pop Up ajustes-->
+                <div class="formaPopUpAjustes" id="PopUpAjustes">
+                <form action="/action_page.php" class="contenidoPopUpAjustes" id="formularioAjustes" name="formularioAjustes">
+                <button type="button" class="cerrarAjustes" onclick="closeAjustes()">X</button>
+                    <div class="tituloAjustes">AJUSTES</div>
+                    <div>
+                        <button type="button" class="iconoCambiarTema" onclick="cambiarTema()">
+                            <img class="iconoCambioTema" src="images/iconoTema.png">
+                            <div class="textoCambioTema">Cambiar tema</div>
+                        </button>
+                        <div class="iconosEncabezado">
+                                <img class="iconosAjustes" src="images/iconoPrivacidad.png">
+                                <div class="textoAjustes"><a href=https://policies.google.com/privacy?hl=es>Privacidad</a></div>
+                        </div>
+                        <div class="iconosEncabezado">
+                                <img class="iconosAjustes" src="images/iconoIdioma.png">
+                                <div class="textoAjustes"><a href=https://translate.google.es/?hl=es&tab=TT&authuser=0>Cambiar idioma</a></div>
+                        </div>
+                        <div class="iconosEncabezado">
+                                <img class="iconosAjustes" src="images/iconoAyuda.png">
+                                <div class="textoAjustes"><a href=https://support.google.com/?hl=es>Ayuda</a></div>
+                        </div>
+                        <div class="iconosEncabezado"> 
+                            <img class="iconosAjustes" src="images/iconoCerrarSesion.png">
+                            <div class="textoAjustes"><a href=inicial.html>Cerrar sesión</a></div>
+                        </div>
+                        <div class="iconosEncabezado">
+                                <button type="button" class="aceptarAjustes" onclick="closeAjustes()"><img src="images/check.png"></button>
+                        </div>
+                    </div> 
+                </form>
+                </div>
+
+            </div>
+        </div>
+    </header>
+
+    <!--Cuerpo de la página web-->
+    <body class="body" id="idBody">
+
+        <!--Menu, parte izquierda-->
+        <div class="menu" id="idMenu">
+            <div class="calendario" onclick="abrirCalendarioEventos()">
+                <div class="imagenCalendario"><img id="idIconoCalendario" src="images/calendar.png"></div>
+                <div class="textoCarpeta">Calendario</div>
+            </div>
+            
+            <div class="directorio" id="listaCarpetas">
+                <div class="tituloCarpetas">LISTA DE CARPETAS</div>
+
+                <div class="carpeta" id="carpeta1"> 
+                    <button type="button" class="imagenCarpeta" id="imagenCarpeta1" onclick="abrirCarpeta('1')"><img id="idiconocarpeta" src="images/carpetacerrada.png" ></button>
+                    <div class="textoCarpeta" id="nombreCarpeta1">Familia</div>
+                    <div class="imagenOpciones" id="opciones1" onclick="desplegarMenu('1')"><img id="idiconoopciones" src="images/opciones.png">
+                    <div id="subopciones1" class="subopciones">
+                        <button type="button" class="botonOpciones" onclick="eliminarCarpeta('1')"><p>Eliminar</p></button>
+                        <button type="button" class="botonOpciones" onclick="PopUprenombrar('1')"><p>Renombrar</p></button>
+                    </div></div>
+                </div>
+
+                <div class="carpeta" id="carpeta2"> 
+                    <button type="button" class="imagenCarpeta" id="imagenCarpeta2" onclick="abrirCarpeta('2')"><img id="idiconocarpeta" src="images/carpetacerrada.png" ></button>
+                    <div class="textoCarpeta" id="nombreCarpeta2">Trabajo</div>
+                    <div class="imagenOpciones" id="opciones1" onclick="desplegarMenu('2')"><img id="idiconoopciones" src="images/opciones.png">
+                    <div id="subopciones2" class="subopciones">
+                        <button type="button" class="botonOpciones" onclick="eliminarCarpeta('2')"><p>Eliminar</p></button>
+                        <button type="button" class="botonOpciones" onclick="PopUprenombrar('2')"><p>Renombrar</p></button>
+                </div></div>
+                </div>
+
+                <div class="AñadirCarpeta" id="botonAñadirCarpeta">
+                    <button class="imagenAddCarpeta" onclick="crearCarpeta()" ><img id="idIconoAddCarpeta" src="images/addCarpeta.png"></button>
+                    <div type="button"class="textoCarpeta" >Nueva carpeta</div>
+                </div>
+                
+                <!--Pop Up crear carpeta-->
+                <div class="formaPopUpAddCarpeta" id="PopUpAddCarpeta">
+                        <form action="/action_page.php" class="contenidoPopUpAddCarpeta" id="formularioAddCarpeta" name="formularioAddCarpeta">
+                        <button type="button" class="cerrarAddCarpeta" onclick="closeAddCarpeta()">X</button>
+                          <h1>Crea una nueva carpeta</h1>
+                          <label for="descripcion"><b>Nombre de la nueva carpeta</b></label><br><br>
+                          <input type="nombre" placeholder="Escribe un nombre" name="nombre" required><br>
+                      
+                          <input type="button" class="boton" value="Crear" onclick="AddCarpeta(this)">
+                        </form>
+                </div>
+                <!--Pop Up renombrar carpeta-->
+                <div class="formaPopUpAddCarpeta" id="PopUpRenombrarCarpeta">
+                    <form action="/action_page.php" class="contenidoPopUpAddCarpeta" id="formularioRenombrarCarpeta" name="formularioRenombrarCarpeta">
+                    <button type="button" class="cerrarAddCarpeta" onclick="closePopUprenombrar()">X</button>
+                      <h1>Edita tu carpeta</h1>
+                      <label for="descripcion"><b>Nombre de la carpeta</b></label><br><br>
+                      <input type="nombre" placeholder="Escribe un nombre" name="nombre" required><br>
+                  
+                      <input type="button" class="boton" value="Renombrar" id="idCambiarNombre" onclick="renombrar(this)">
+                    </form>
+            </div>
+            </div>
+        </div>
+
+        <!--Zona de trabajo, centro de la página-->
+        <div class="zonaTrabajo" id="idZonaTrabajo">
+            <!--Zona de busqueda, aparece cuando se utiliza el buscador-->
+            <div id="idZonaBusqueda">
+                <button type="button" id="idCerrarBuscador" class="volverBuscador" onclick="cerrarBuscador()">
+                    <img id="idVolverBusqueda" src="images/cancelar.png">
+                </button>
+                <div class="opcionesBuscador" id="idOpcionesBuscador">
+                    <button type="button" class="elemBusqueda" onclick="generarBusqueda('1')">
+                        <div class="iconoBusquedaOpciones"><img id="idnotas" src="images/notas.png"></div>
+                        <div class="textoIconoBusqueda">Nombre</div>
+                    </button>
+                    <button type="button" class="elemBusqueda" onclick="generarBusqueda('2')">
+                        <div class="iconoBusquedaOpciones"><img id="idhastag" src="images/hastag.png"></div>
+                        <div class="textoIconoBusqueda">Hastags</div>
+                    </button>
+                    <button type="button" class="elemBusqueda" onclick="generarBusqueda('3')">
+                        <div class="iconoBusquedaOpciones"><img id="idcalendario" src="images/iconoCal.png"></div>
+                        <div class="textoIconoBusqueda">Fecha</div>
+                    </button>
+                    <button type="button" class="elemBusqueda" onclick="generarBusqueda('4')">
+                        <div class="iconoBusquedaOpciones"><img id="idcarpeta" src="images/carpetaBuscador.png"></div>
+                        <div class="textoIconoBusqueda">Carpeta</div>
+                    </button>
+                    <button type="button" class="elemBusqueda" onclick="generarBusqueda('5')">
+                        <div class="iconoBusquedaOpciones"><img id="idusuario" src="images/usuario.png"></div>
+                        <div class="textoIconoBusqueda">Participantes</div>
+                    </button>
+                </div>
+                <div class="busquedas"id="busquedasRecientes"></div>
+            </div>
+            
+            <!--Lista con todas las tareas del usuario-->
+            <div class="listaTareas" id="idListaTareas0">
+                <div class="tarea" id="idTarea1">
+                    <button type="button" class="casillaTarea" onclick="verificarTarea('1')">
+                        <div class="tareaCompleta" id="idVerificar1">
+                            <img id="idVerificacion" src="images/verificar.png">
+                        </div>
+                    </button>
+                    <div class="cuerpoTarea">
+                        <div class="tituloTarea" id="idNombreTarea1">Recoger a los niños</div>
+                        <div class="ajustesTarea"><button type="button" class="editarTarea" onclick="openEditarEvento('1')"><img id="idAjustesTarea" src="images/llave.png"></button></div>
+                        <div class="imagenTarea">
+                        <img id="idimagenUbicacion" src="images/imagenUbicacion.png">
+                            <div class="datosTarea">
+                                    <div>
+                                            <div class="iconoDatosTarea"><img id="idiconoUbicacion" src="images/iconoCrono.png"></div>
+                                            <div class="textoDatos" id="idFechaInicio1">2020-10-15T19:00</div>
+                                        </div>
+                                        <div>
+                                            <div class="iconoDatosTarea"><img id="idiconoCal" src="images/cronoOut.png"></div>
+                                            <div class="textoDatos" id="idFechaFin1">2020-10-15T20:00</div>
+                                        </div>
+                            </div>
+                            <div class="prioridadTarea" id="idPrioridadTarea1">
+                                <div class="textoPrioridad"><strong>Prioridad</strong></div>
+                                <img id="idiconoPrioridad" src="images/prioridad3.png">
+                            </div>
+                        </div>   
+                    </div>
+                </div>
+                <div id="divAddEvento0">
+                    <button type="button" class="addEventoBoton" id="addEventoBoton" onclick="openAddEvento()"><img id="idAñadirEvento" src="images/addEvento.png">Añadir evento</button>
+                </div>
+            </div>
+            <div class="listaTareas" id="idListaTareas1">
+                <div id="divAddEvento1">
+                    <button type="button" class="addEventoBoton" id="addEventoBoton" onclick="openAddEvento()"><img id="idAñadirEvento" src="images/addEvento.png">Añadir evento</button>
+                </div>
+            </div>
+            <div class="listaTareas" id="idListaTareas2">
+                <div id="divAddEvento2">
+                    <button type="button" class="addEventoBoton" id="addEventoBoton" onclick="openAddEvento()"><img id="idAñadirEvento" src="images/addEvento.png">Añadir evento</button>
+                </div>
+            </div>
+        </div>
+        
+        <!--Pop Up añadir evento-->
+        <div class="formaPopUpAddEvento" id="PopUpAddEvento">
+                <form action="/action_page.php" class="contenidoPopUpAddEvento" id="formularioAddEvento" name="formularioAddEvento">
+                <button type="button" class="cerrarAddEvento" onclick="closeAddEvento()">X</button>
+                  <div class="tituloAddEventoPopUp">Crea un nuevo evento</div><br>
+    
+                  <label for="descripcion" class="textoAddEventoPopUp">Nombre del evento</label>
+                  <input placeholder="Añade nombre al evento" name="nombreEvento" required>
+                    
+                  <label for="tematica" class="textoAddEventoPopUp">Carpeta del evento</label>
+                            <select name="tematicaEvento" class="textoAddEventoPopUp" id="idListaTematicas">
+                                    <option value="0" selected>Inicio</option>
+                            </select><br><br>
+
+                  <label for="descripcion" class="textoAddEventoPopUp">Descripción</label>
+                  <input placeholder="Añade una descripción al evento" name="descripcionEvento"><br>
+                  
+
+                  <div class="textoAddEventoPopUp"><img id="idIconosAddEventoPopUp" src="images/iconoCrono.png">Fecha y hora de inicio</div>
+                  <input placeholder="dd/mm/aaaa hh:mm" name="fechaInicio" type="datetime-local" required><br>
+
+                  <div class="textoAddEventoPopUp"><img id="idIconosAddEventoPopUp" src="images/cronoOut.png">Fecha y hora de fin</div>
+                  <input placeholder="dd/mm/aaaa hh:mm" name="fechaFin" type="datetime-local" required><br>
+
+                  <div class="textoAddEventoPopUp"><img id="idIconosAddEventoPopUp" src="images/mapita.png">Selecciona la ubicación</div>
+                  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3041.442161583973!2d-3.767505784295627!3d40.332536368678994!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd41898b1cc06b5b%3A0xaf0cadd098b516f8!2sUniversidad%20Carlos%20III%20de%20Madrid%3A%20Campus%20de%20Legan%C3%A9s!5e0!3m2!1ses!2ses!4v1575220718486!5m2!1ses!2ses" width="350" height="250" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
+                  <br>
+                  <div class="textoAddEventoPopUp"><img id="idIconosAddEventoPopUp" src="images/addUser.png">Añade personas al evento</div>
+   
+                  <div class="textoAlarmaPopUp"><img id="idIconosAddEventoPopUp" src="images/alarma01.png">Añade una alarma</div><br>
+
+                  <label for="prioridad" class="textoAddEventoPopUp">Selecciona una prioridad</label>
+                            <select name="prioridadEvento" class="textoAddEventoPopUp">
+                                    <option value="1" selected>Urgente</option>
+                                    <option value="2">Importante</option>
+                                    <option value="3">Sin importancia</option>
+                  </select><br><br>
+
+                  <div class="textoAddEventoPopUp"><img id="idIconosAddEventoPopUp" src="images/hashtag.png">Añade etiquetas</div>
+                  <input placeholder="Separa las etiquetas con ','" name="etiquetaEvento" required><br>
+              
+                  <input type="submit" class="boton" value="Crear evento" onclick="crearEvento()">
+                </form>
+        </div>
+
+        <!--pop Up Calendario y de eventos-->
+        <div class="formaPopUpAddEvento" id="idcalendarioEventos">
+            <form action="/action_page.php" class="calendarioEventos">
+                <button type="button" class="cerrarCalendario" onclick="closeCalendario()"><img id="idVolverBusqueda" src="images/cancelar.png"></button>
+                <!--Parte del calendario-->
+                <div class="calendar">
+                    <div class="calendar__month">
+                        <div class="cal-month__previous">
+                            <</div> <div class="cal-month__current">
+                        </div>
+                        <div class="cal-month__next">></div>
+                    </div>
+                    <div class="calendar__head">
+                        <div class="cal-head__day"></div>
+                        <div class="cal-head__day"></div>
+                        <div class="cal-head__day"></div>
+                        <div class="cal-head__day"></div>
+                        <div class="cal-head__day"></div>
+                        <div class="cal-head__day"></div>
+                        <div class="cal-head__day"></div>
+                    </div>
+                    <div class="calendar__body">
+                        <div class="cal-body__week">
+                            <div class="cal-body__day"></div>
+                            <div class="cal-body__day"></div>
+                            <div class="cal-body__day"></div>
+                            <div class="cal-body__day"></div>
+                            <div class="cal-body__day"></div>
+                            <div class="cal-body__day"></div>
+                            <div class="cal-body__day"></div>
+                        </div>
+                        <div class="cal-body__week">
+                            <div class="cal-body__day"></div>
+                            <div class="cal-body__day"></div>
+                            <div class="cal-body__day"></div>
+                            <div class="cal-body__day"></div>
+                            <div class="cal-body__day"></div>
+                            <div class="cal-body__day"></div>
+                            <div class="cal-body__day"></div>
+                        </div>
+                        <div class="cal-body__week">
+                            <div class="cal-body__day"></div>
+                            <div class="cal-body__day"></div>
+                            <div class="cal-body__day"></div>
+                            <div class="cal-body__day"></div>
+                            <div class="cal-body__day"></div>
+                            <div class="cal-body__day"></div>
+                            <div class="cal-body__day"></div>
+                        </div>
+                        <div class="cal-body__week">
+                            <div class="cal-body__day"></div>
+                            <div class="cal-body__day"></div>
+                            <div class="cal-body__day"></div>
+                            <div class="cal-body__day"></div>
+                            <div class="cal-body__day"></div>
+                            <div class="cal-body__day"></div>
+                            <div class="cal-body__day"></div>
+                        </div>
+                        <div class="cal-body__week">
+                            <div class="cal-body__day"></div>
+                            <div class="cal-body__day"></div>
+                            <div class="cal-body__day"></div>
+                            <div class="cal-body__day"></div>
+                            <div class="cal-body__day"></div>
+                            <div class="cal-body__day"></div>
+                            <div class="cal-body__day"></div>
+                        </div>
+                        <div class="cal-body__week">
+                            <div class="cal-body__day"></div>
+                            <div class="cal-body__day"></div>
+                            <div class="cal-body__day"></div>
+                            <div class="cal-body__day"></div>
+                            <div class="cal-body__day"></div>
+                            <div class="cal-body__day"></div>
+                            <div class="cal-body__day"></div>
+                        </div>
+                    </div>
+                </div>
+                <!--Parte de los eventos-->
+                <div class="eventos" id="eventosDiv">
+                    <div class="cabeceraEventos">
+                        <p class="cabeceraEventosTarea">Tareas</p>
+                        <p class="cabeceraEventosFechas">Fecha inicio<br>Fecha fin</p>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <!--Footer de la página web-->
+        <div class="footer">
+                <div id="buttonFooter"></div>
+                  <div id="container">
+                  <div id="cont">
+                  <div class="footer_center">
+                    <div class="textoFooterIzq"><br><br><p><h1>Sobre nosotros</h1></p>
+                        <div class="contenidoColumna"><button type="button" class="botonesFooter" onclick="openAyuda()"><h3>Ayuda</h3></button></div>
+                        <div class="contenidoColumna"><button type="button" class="botonesFooter" onclick="openNosotros()"><h3>Sobre nosotros</h3></button></div>
+                        <div class="contenidoColumna"><button type="button" class="botonesFooter" onclick="openPrivacidad()"><h3>Privacidad</h3></button></div>
+                        <div class="contenidoColumna"><button type="button" class="botonesFooter" onclick="openMore()"><h3>Más sobre MyPO</h3></button></div>
+                    </div>
+                    <div class="textoFooterCentro"><br><br><p><h2>Redes sociales</h2></p>
+                        <div class="contenidoColumna2"><a href="https://www.instagram.com/trelloapp/?hl=es"><img id="instagram" src="images/instagram.png"></a></div>
+                        <div class="contenidoColumna2"><a href="https://twitter.com/trello?lang=es"><img id="instagram" src="images/twitter.png"></a></div>
+                        <div class="contenidoColumna2"><a href="https://www.youtube.com/watch?v=tOpBJnOifAc"><img id="instagram" src="images/youtube.png"></a></div>
+                        <div class="contenidoColumna2"><a href="https://es-la.facebook.com/trelloapp/"><img id="instagram" src="images/facebook.png"></a></div>
+                        <div class="contenidoColumna2"><a href="https://open.spotify.com/album/7ozNDRGfmsYWeX1U3Qdk6m"><img id="instagram" src="images/spotify.png"></a></div>
+                        <div class="contenidoColumna2"><a href="https://trello.com/es/platforms/google"><img id="instagram" src="images/google-plus.png"></a></div>
+                        <div class="contenidoColumna2"><a href="https://www.pinterest.es/mymoonpie/trello/"><img id="instagram" src="images/pinterest.png"></a></div>
+                        <div class="contenidoColumna2"><a href="https://www.snapchat.com/l/es/"><img id="instagram" src="images/snapchat.png"></a></div>
+                    </div>
+                    <div class="textoFooterDerecha"><br><br><p><h1>Contacto</h1></p>
+                        <div class="contenidoColumna3"><img id="contacto" src="images/home.png"></div>
+                        <div class="contenidoColumna3"><h3>Leganés, Madrid 10012</h3></div>
+                        <div class="contenidoColumna3"><img id="contacto" src="images/envelope.png"></div>
+                        <div class="contenidoColumna3"><h3>mypo@mypoinfo.com</h3></div>
+                        <div class="contenidoColumna3"><img id="contacto" src="images/tlf.png"></div>
+                        <div class="contenidoColumna3"><h3>+34 91 478 18 23</h3></div>
+                        <div class="contenidoColumna3"><img id="contacto" src="images/printing-tool.png"></div>
+                        <div class="contenidoColumna3"><h3>+34 91 478 18 24</h3></div>
+                    </div>
+                  </div>
+                  </div>
+                </div>
+        </div>
+    </body>
+        
+    <!--Pop Ups del footer-->
+
+    <!--Pop Up Ayuda-->
+    <div class="formaPopUpTerminos" id="PopUpAyuda">
+                <form action="/action_page.php" class="contenidoPopUpTerminos">
+                <button type="button" class="cerrarTerminos" onclick="closeAyuda()">X</button>
+                <div class="tituloTerminos">Ayuda</div>
+                        <div>
+                                <div class="iconosEncabezado">
+                                <img class="iconosTerminos" src="images/help.png">
+                                <div class="textoTerminos">¿Qué es y para qué funciona MyPO?</div>
+                                </div>
+                                <div class="textoRelleno">
+                                        MyPO es un servicio de alojamiento de videos de internet, al cual podemos subir nuestros videos y compartirlos en la web para que otras personas puedan visualizarlos.
+                                        Al mismo tiempo podemos explorar el contenido del sitio, como si se tratara de una enorme biblioteca.
+                                        MyPO es gratuito, porque Google su propietario lo hace rentable mostrando anuncios y publicidad en las páginas donde se muestran los videos.
+                                        Podemos entrar a MyPO con el navegador web desde la computadora o usando el teléfono celular, también podemos instalar la aplicación móvil, que facilita varias funcionalidades.
+                                </div>
+                                
+                                <div class="iconosEncabezado"> 
+                                <img class="iconosTerminos" src="images/info.png">
+                                <div class="textoTerminos"><a href=https://norfipc.com/youtube/dudas-preguntas-respuestas-sobre-youtube.php>Más información</a></div>
+                                </div>
+                        </div> 
+                </form>
+    </div>
+    <!--Pop Up Nosotros-->
+    <div class="formaPopUpTerminos" id="PopUpNosotros">
+                <form action="/action_page.php" class="contenidoPopUpTerminos">
+                <button type="button" class="cerrarTerminos" onclick="closeNosotros()">X</button>
+                <div class="tituloTerminos">Sobre Nosotros</div>
+                        <div>
+                                <div class="iconosEncabezado">
+                                <img class="iconosTerminos" src="images/aboutus.png">
+                                <div class="textoTerminos">¿Quiénes somos?</div>
+                                </div>
+                                <div class="textoRelleno">
+                                        MyPO es un servicio de alojamiento de videos de internet, al cual podemos subir nuestros videos y compartirlos en la web para que otras personas puedan visualizarlos.
+                                        Al mismo tiempo podemos explorar el contenido del sitio, como si se tratara de una enorme biblioteca.
+                                        MyPO es gratuito, porque Google su propietario lo hace rentable mostrando anuncios y publicidad en las páginas donde se muestran los videos.
+                                        Podemos entrar a MyPO con el navegador web desde la computadora o usando el teléfono celular, también podemos instalar la aplicación móvil, que facilita varias funcionalidades.
+                                </div>
+                                
+                                <div class="iconosEncabezado"> 
+                                <img class="iconosTerminos" src="images/info.png">
+                                <div class="textoTerminos"><a href=https://about.google>Más información</a></div>
+                                </div>
+                        </div> 
+                </form>
+    </div>
+    <!--Pop Up Privacidad-->
+    <div class="formaPopUpTerminos" id="PopUpPrivacidad">
+                <form action="/action_page.php" class="contenidoPopUpTerminos">
+                <button type="button" class="cerrarTerminos" onclick="closePrivacidad()">X</button>
+                <div class="tituloTerminos">Privacidad</div>
+                        <div>
+                                <div class="iconosEncabezado">
+                                <img class="iconosTerminos" src="images/iconoPrivacidad.png">
+                                <div class="textoTerminos">Términos de privacidad</div>
+                                </div>
+                                <div class="textoRelleno">
+                                        MyPO es un servicio de alojamiento de videos de internet, al cual podemos subir nuestros videos y compartirlos en la web para que otras personas puedan visualizarlos.
+                                        Al mismo tiempo podemos explorar el contenido del sitio, como si se tratara de una enorme biblioteca.
+                                        MyPO es gratuito, porque Google su propietario lo hace rentable mostrando anuncios y publicidad en las páginas donde se muestran los videos.
+                                        Podemos entrar a MyPO con el navegador web desde la computadora o usando el teléfono celular, también podemos instalar la aplicación móvil, que facilita varias funcionalidades.
+                                </div>
+                                
+                                <div class="iconosEncabezado"> 
+                                <img class="iconosTerminos" src="images/info.png">
+                                <div class="textoTerminos"><a href=https://policies.google.com/privacy?hl=es-419>Más información</a></div>
+                                </div>
+                        </div> 
+                </form>
+    </div>
+    <!--Pop Up More-->
+    <div class="formaPopUpTerminos" id="PopUpMore">
+                <form action="/action_page.php" class="contenidoPopUpTerminos">
+                <button type="button" class="cerrarTerminos" onclick="closeMore()">X</button>
+                <div class="tituloTerminos">Más</div>
+                        <div>
+                                <div class="iconosEncabezado">
+                                <img class="iconosTerminos" src="images/head.png">
+                                <div class="textoTerminos">Más sobre MyPO</div>
+                                </div>
+                                <div class="textoRelleno">
+                                        MyPO es un servicio de alojamiento de videos de internet, al cual podemos subir nuestros videos y compartirlos en la web para que otras personas puedan visualizarlos.
+                                        Al mismo tiempo podemos explorar el contenido del sitio, como si se tratara de una enorme biblioteca.
+                                        MyPO es gratuito, porque Google su propietario lo hace rentable mostrando anuncios y publicidad en las páginas donde se muestran los videos.
+                                        Podemos entrar a MyPO con el navegador web desde la computadora o usando el teléfono celular, también podemos instalar la aplicación móvil, que facilita varias funcionalidades.
+                                </div>
+                                
+                                <div class="iconosEncabezado"> 
+                                <img class="iconosTerminos" src="images/info.png">
+                                <div class="textoTerminos"><a href=https://policies.google.com/privacy?hl=es-419>Más información</a></div>
+                                </div>
+                        </div> 
+                </form>
+    </div>
+
+    <!--Script para el calendario aquí, porque si se pone al principio, la página no se carga y por tanto encuentra null-->
+    <script src="script/scriptCalendar.js"></script>
+</html>

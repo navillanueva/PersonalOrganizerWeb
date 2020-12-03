@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="style/inicialStyle.css">
+        <link rel="stylesheet" href="style/popupStyle.css"> <!--Css PopUp-->
+        <title>MyPO</title>
+    </head>
+    <script src="script/scriptInicial.js"></script>
+    <header>
+        <div class="header" id="idEncabezado">
+                <div class="imagenEncabezado"><a href="javascript:location.reload()"><img id="idImagenEncabezado" src="images/prueba.png"></a></div>
+                <div class="textoheader">
+                        <p>"Empieza a organizar tu vida"</p>
+                </div>
+                <div class="registroEinicio">
+                        <button type="button" class="registrarse" onclick="openRegistrarse()">Regístrate</button>
+                        <button type="button" class="iniciarSesion" onclick="openIniciarSesion()">Inicia sesión</button>
+                </div>
+        </div>
+    </header>
+
+    <body class="body">
+        <div class="cuerpo">
+        <div class="col1">
+                <div class="textoVideo">
+                        <p>Aprende a utilizar MyPO</p>
+                </div>
+                <div class="video">
+                                <iframe id="idVideo" height= "300" src="https://www.youtube.com/embed/tOpBJnOifAc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                <div class="textoVideo2">
+                        <p>Empiece a planificar su vida desde ya con MyPO. Desde organizar eventos y actividades hasta chatear con diferentes colaboradores. Dispondrás de una gran cantidad de funcionalidades para personalizar al máximo tu experiencia.</p>
+                </div>
+                <button class="registroVideo" onclick="openRegistrarse()">Únete ya. ¡Es gratis!</button>
+        </div>
+        <div class="col2">
+                <div class="fil">
+                        <div class="textoFila1"> Organiza tus tareas en un simple calendario y añade tantos eventos como te sea necesario</div>
+                        <div class="icono2"><img class="calendario" src="images/calendario.png"></div>
+                </div>
+
+                <div class="fil">
+                        <div class="textoFila2"> Crea actividades y personalízalas como quieras</div>
+                        <div class="textoIconoMapa">MyPO te permite seleccionar fechas de inicio y fin, elegir ubicación con Google Maps y añadir la prioridad que creas conveniente a tus tareas</div>
+                        <div class="icono3"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d48627.37889387531!2d-3.739315033627534!3d40.382011938265265!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd41898b1cc06b5b%3A0xaf0cadd098b516f8!2sUniversidad%20Carlos%20III%20de%20Madrid%3A%20Campus%20de%20Legan%C3%A9s!5e0!3m2!1ses!2ses!4v1575369684253!5m2!1ses!2ses" width="400" height="300" frameborder="0" style="border:0;" allowfullscreen=""></iframe></div>
+                </div>
+
+        </div>
+        </div>
+        <!--Formulario registro-->
+        <div class="formaPopUpRegistrarse" id="PopUpRegistrarse">
+                <form action="/action_page.php" class="contenidoPopUpRegistrarse" id="formularioRegistro" name="formularioRegistrarse">
+                <button type="button" class="cerrarRegistrarse" onclick="closeRegistrarse()">X</button>
+                  <h2 class="TituloInicioSesionReg">¡Empieza a organizar tu agenda!</h2>
+                  <label for="nombreUsuario" class="iconosInicioSesion"><img id="idReg" src="images/usuario.png"></label>
+                  <input type="text" placeholder="Añade el nombre de usuario" name="nombreUsuario" pattern="^[a-z0-9]+$" required><br>
+
+                  <label for="contraseña" class="iconosInicioSesion"><img id="idReg" src="images/candadocerrado.png"></label>
+                  <input type="password" placeholder="Añade la contraseña" name="contraseña" maxlength="8" required>
+
+                  <h2 class="TituloInicioSesionReg2">Información personal</h2>
+              
+                  <label for="nombreApellidos"  class="iconosInicioSesion"><img id="idReg" src="images/notas.png"></label>
+                  <input type="text" placeholder="Añade tu nombre completo" name="nombreApellidos" required><br>
+
+                  <label for="email" class="iconosInicioSesion"><img id="idReg" src="images/correo.png"></label>
+                  <input type="email" placeholder="Añade tu dirección de correo electrónico" name="email" required><br>
+
+                  <label for="fechaNacimiento" class="iconosInicioSesion"><img id="idReg" src="images/iconoCal.png"></label>
+                  <input type="date" name="fechaNacimiento" required><br>
+
+                <label for="genero"><b>Género</b></label>
+                <select name="genero">
+                        <option value="1" selected>Hombre</option>
+                        <option value="2">Mujer</option>
+                        <option value="3">Otro</option>
+                </select><br><br>
+
+                  <label for="condicionesUso" class="TextocondicionesUso">He leído y acepto todas las Condiciones de uso</label>
+                  <input type="checkbox" class="checkbox" name="condicionesUso" value="1" required>
+
+                  <input type="submit" class="boton" value="Guardar" onclick="registrarse()">
+                  <button type="reset" class="boton Rojo">Borrar</button>
+                </form>
+        </div>
+        <!--Pop Up inicio de sesion-->
+        <div class="formaPopUpIniciarSesion" id="PopUpIniciarSesion">
+                <form action="/action_page.php" class="contenidoPopUpIniciarSesion" id="formularioInicio" name="formularioIniciarSesion">
+                <button type="button" class="cerrarIniciarSesion" onclick="closeIniciarSesion()">X</button>
+                  <h1 class="TituloInicioSesionReg">Inicia Sesión</h1>
+                  <label for="descripcion" class="iconosInicioSesion"><img id="idIni" src="images/usuario.png"></label>
+                  <input type="email" placeholder="Añade tu dirección de correo electrónico" name="email" required><br>
+
+                  <label for="nombre" class="iconosInicioSesion"><img id="idIni" src="images/candadocerrado.png"></label>
+                  <input type="password" placeholder="Añade la contraseña" name="contraseña" maxlength="8" required>
+              
+                  <input type="button" class="boton" value="Iniciar sesión" onclick="iniciarSesion(this)">
+                  <button type="reset" class="boton Rojo">Borrar</button>
+                  <h4 class="TituloInicioSesionReg2">Inicia sesión con</h4>
+                  <div class="redesSociales">
+                        <img id="idRedesSociales" src="images/facebook.png">
+                        <img id="idRedesSociales2" src="images/google-plus.png">
+                  </div>
+                  
+                </form>
+        </div>
+
+        <!--Footer de la página web-->
+        <div class="footer">
+                <div id="buttonFooter"></div>
+                  <div id="container">
+                  <div id="cont">
+                  <div class="footer_center">
+                    <div class="textoFooterIzq"><br><br><p><h1>Sobre nosotros</h1></p>
+                        <div class="contenidoColumna"><button type="button" class="botonesFooter" onclick="openAyuda()"><h3>Ayuda</h3></button></div>
+                        <div class="contenidoColumna"><button type="button" class="botonesFooter" onclick="openNosotros()"><h3>Sobre nosotros</h3></button></div>
+                        <div class="contenidoColumna"><button type="button" class="botonesFooter" onclick="openPrivacidad()"><h3>Privacidad</h3></button></div>
+                        <div class="contenidoColumna"><button type="button" class="botonesFooter" onclick="openMore()"><h3>Más sobre MyPO</h3></button></div>
+                    </div>
+                    <div class="textoFooterCentro"><br><br><p><h2>Redes sociales</h2></p>
+                        <div class="contenidoColumna2"><a href="https://www.instagram.com/trelloapp/?hl=es"><img id="instagram" src="images/instagram.png"></a></div>
+                        <div class="contenidoColumna2"><a href="https://twitter.com/trello?lang=es"><img id="instagram" src="images/twitter.png"></a></div>
+                        <div class="contenidoColumna2"><a href="https://www.youtube.com/watch?v=tOpBJnOifAc"><img id="instagram" src="images/youtube.png"></a></div>
+                        <div class="contenidoColumna2"><a href="https://es-la.facebook.com/trelloapp/"><img id="instagram" src="images/facebook.png"></a></div>
+                        <div class="contenidoColumna2"><a href="https://open.spotify.com/album/7ozNDRGfmsYWeX1U3Qdk6m"><img id="instagram" src="images/spotify.png"></a></div>
+                        <div class="contenidoColumna2"><a href="https://trello.com/es/platforms/google"><img id="instagram" src="images/google-plus.png"></a></div>
+                        <div class="contenidoColumna2"><a href="https://www.pinterest.es/mymoonpie/trello/"><img id="instagram" src="images/pinterest.png"></a></div>
+                        <div class="contenidoColumna2"><a href="https://www.snapchat.com/l/es/"><img id="instagram" src="images/snapchat.png"></a></div>
+                    </div>
+                    <div class="textoFooterDerecha"><br><br><p><h1>Contacto</h1></p>
+                        <div class="contenidoColumna3"><img id="contacto" src="images/home.png"></div>
+                        <div class="contenidoColumna3"><h3>Leganés, Madrid 10012</h3></div>
+                        <div class="contenidoColumna3"><img id="contacto" src="images/envelope.png"></div>
+                        <div class="contenidoColumna3"><h3>mypo@mypoinfo.com</h3></div>
+                        <div class="contenidoColumna3"><img id="contacto" src="images/tlf.png"></div>
+                        <div class="contenidoColumna3"><h3>+34 91 478 18 23</h3></div>
+                        <div class="contenidoColumna3"><img id="contacto" src="images/printing-tool.png"></div>
+                        <div class="contenidoColumna3"><h3>+34 91 478 18 24</h3></div>
+                    </div>
+                  </div>
+                  </div>
+                </div>
+        </div>
+
+    </body>
+            
+                <!--Pop Up Ayuda-->
+                <div class="formaPopUpTerminos" id="PopUpAyuda">
+                        <form action="/action_page.php" class="contenidoPopUpTerminos">
+                        <button type="button" class="cerrarTerminos" onclick="closeAyuda()">X</button>
+                        <div class="tituloTerminos">Ayuda</div>
+                                <div>
+                                        <div class="iconosEncabezado">
+                                        <img class="iconosTerminos" src="images/help.png">
+                                        <div class="textoTerminos">¿Qué es y para qué funciona MyPO?</div>
+                                        </div>
+                                        <div class="textoRelleno">
+                                                MyPO es un servicio de alojamiento de videos de internet, al cual podemos subir nuestros videos y compartirlos en la web para que otras personas puedan visualizarlos.
+                                                Al mismo tiempo podemos explorar el contenido del sitio, como si se tratara de una enorme biblioteca.
+                                                MyPO es gratuito, porque Google su propietario lo hace rentable mostrando anuncios y publicidad en las páginas donde se muestran los videos.
+                                                Podemos entrar a MyPO con el navegador web desde la computadora o usando el teléfono celular, también podemos instalar la aplicación móvil, que facilita varias funcionalidades.
+                                        </div>
+                                        
+                                        <div class="iconosEncabezado"> 
+                                        <img class="iconosTerminos" src="images/info.png">
+                                        <div class="textoTerminos"><a href=https://norfipc.com/youtube/dudas-preguntas-respuestas-sobre-youtube.php>Más información</a></div>
+                                        </div>
+                                </div> 
+                        </form>
+                </div>
+                <!--Pop Up Nosotros-->
+                <div class="formaPopUpTerminos" id="PopUpNosotros">
+                        <form action="/action_page.php" class="contenidoPopUpTerminos">
+                        <button type="button" class="cerrarTerminos" onclick="closeNosotros()">X</button>
+                        <div class="tituloTerminos">Sobre Nosotros</div>
+                                <div>
+                                        <div class="iconosEncabezado">
+                                        <img class="iconosTerminos" src="images/aboutus.png">
+                                        <div class="textoTerminos">¿Quiénes somos?</div>
+                                        </div>
+                                        <div class="textoRelleno">
+                                                MyPO es un servicio de alojamiento de videos de internet, al cual podemos subir nuestros videos y compartirlos en la web para que otras personas puedan visualizarlos.
+                                                Al mismo tiempo podemos explorar el contenido del sitio, como si se tratara de una enorme biblioteca.
+                                                MyPO es gratuito, porque Google su propietario lo hace rentable mostrando anuncios y publicidad en las páginas donde se muestran los videos.
+                                                Podemos entrar a MyPO con el navegador web desde la computadora o usando el teléfono celular, también podemos instalar la aplicación móvil, que facilita varias funcionalidades.
+                                        </div>
+                                        
+                                        <div class="iconosEncabezado"> 
+                                        <img class="iconosTerminos" src="images/info.png">
+                                        <div class="textoTerminos"><a href=https://about.google>Más información</a></div>
+                                        </div>
+                                </div> 
+                        </form>
+                </div>
+                <!--Pop Up Privacidad-->
+                <div class="formaPopUpTerminos" id="PopUpPrivacidad">
+                        <form action="/action_page.php" class="contenidoPopUpTerminos">
+                        <button type="button" class="cerrarTerminos" onclick="closePrivacidad()">X</button>
+                        <div class="tituloTerminos">Privacidad</div>
+                                <div>
+                                        <div class="iconosEncabezado">
+                                        <img class="iconosTerminos" src="images/iconoPrivacidad.png">
+                                        <div class="textoTerminos">Términos de privacidad</div>
+                                        </div>
+                                        <div class="textoRelleno">
+                                                MyPO es un servicio de alojamiento de videos de internet, al cual podemos subir nuestros videos y compartirlos en la web para que otras personas puedan visualizarlos.
+                                                Al mismo tiempo podemos explorar el contenido del sitio, como si se tratara de una enorme biblioteca.
+                                                MyPO es gratuito, porque Google su propietario lo hace rentable mostrando anuncios y publicidad en las páginas donde se muestran los videos.
+                                                Podemos entrar a MyPO con el navegador web desde la computadora o usando el teléfono celular, también podemos instalar la aplicación móvil, que facilita varias funcionalidades.
+                                        </div>
+                                        
+                                        <div class="iconosEncabezado"> 
+                                        <img class="iconosTerminos" src="images/info.png">
+                                        <div class="textoTerminos"><a href=https://policies.google.com/privacy?hl=es-419>Más información</a></div>
+                                        </div>
+                                </div> 
+                        </form>
+                </div>
+                <!--Pop Up More-->
+                <div class="formaPopUpTerminos" id="PopUpMore">
+                        <form action="/action_page.php" class="contenidoPopUpTerminos">
+                        <button type="button" class="cerrarTerminos" onclick="closeMore()">X</button>
+                        <div class="tituloTerminos">Más</div>
+                                <div>
+                                        <div class="iconosEncabezado">
+                                        <img class="iconosTerminos" src="images/head.png">
+                                        <div class="textoTerminos">Más sobre MyPO</div>
+                                        </div>
+                                        <div class="textoRelleno">
+                                                MyPO es un servicio de alojamiento de videos de internet, al cual podemos subir nuestros videos y compartirlos en la web para que otras personas puedan visualizarlos.
+                                                Al mismo tiempo podemos explorar el contenido del sitio, como si se tratara de una enorme biblioteca.
+                                                MyPO es gratuito, porque Google su propietario lo hace rentable mostrando anuncios y publicidad en las páginas donde se muestran los videos.
+                                                Podemos entrar a MyPO con el navegador web desde la computadora o usando el teléfono celular, también podemos instalar la aplicación móvil, que facilita varias funcionalidades.
+                                        </div>
+                                        
+                                        <div class="iconosEncabezado"> 
+                                        <img class="iconosTerminos" src="images/info.png">
+                                        <div class="textoTerminos"><a href=https://policies.google.com/privacy?hl=es-419>Más información</a></div>
+                                        </div>
+                                </div> 
+                        </form>
+                </div>
+            
+</html>

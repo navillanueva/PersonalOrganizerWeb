@@ -1,0 +1,677 @@
+/*Pagina de estilo con todos los estilos de los popups de ambas paginas*/
+
+
+/*Pop ups pagina inicial*/
+/*Popups de registro e inicio de sesion*/
+.formaPopUpRegistrarse {
+    display: none;
+    position: fixed;
+    height: auto;
+    z-index: 9;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.contenidoPopUpRegistrarse {
+    border-radius: 5px;
+    max-width: 500px;
+    padding: 1%; 
+    box-shadow: rgb(180, 180, 180);
+    background: rgb(255, 255, 255);
+    position: relative; 
+    margin: 4% auto;
+}
+
+.formaPopUpRegistrarse input {
+    width: 75%;
+    padding: 15px;
+    border-radius: 5px;
+    margin: 5px 0 22px 0;
+    border: none;
+    background: #f1f1f1;
+    margin-left: 2%;
+}
+
+  .formaPopUpRegistrarse input:focus {
+    background-color: #ddd;
+    outline: none;
+  }
+
+  .formaPopUpRegistrarse .boton {
+    background-color: #4CAF50;
+    color: white;
+    border-radius: 5px;
+    padding: 16px 20px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    margin-bottom:10px;
+    opacity: 0.8;
+    margin-top:10px;
+    margin-left: 0%;
+  }
+  
+  .formaPopUpRegistrarse .Rojo {
+    background-color: red;
+  }
+  
+  .formaPopUpRegistrarse .boton:hover, .open-button:hover {
+    opacity: 1;
+  }
+
+  .cerrarRegistrarse{ 
+    position: absolute;
+    top: 2%;
+    right: 5%;
+    font-size: 25px;
+    color: rgb(0, 0, 0);
+    transition: all 200ms;
+}
+
+.contenidoPopUpRegistrarse .cerrarRegistrarse {
+    background: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+    padding: 10px 10px;
+    border: none;
+    cursor: pointer;
+    width: 0.5%;
+    float: right;
+    opacity: 0.8;
+    text-align: center;
+}
+#idReg{
+    width: 7%;
+    height: 7%;
+    margin-top: 2%;
+    margin-left: 1%;
+}
+.TextocondicionesUso{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-align: center;
+}
+
+/*Inicio de sesion*/
+.formaPopUpIniciarSesion {
+    display: none;
+    position: fixed;
+    height: auto;
+    z-index: 9;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.contenidoPopUpIniciarSesion {
+    border-radius: 5px;
+    max-width: 400px;
+    padding: 1%; 
+    box-shadow: rgb(180, 180, 180);
+    background: white;
+    position: relative; 
+    margin: 10% auto;
+}
+
+.formaPopUpIniciarSesion input {
+    width: 75%;
+    padding: 15px;
+    border-radius: 5px;
+    margin: 5px 0 22px 0;
+    border: none;
+    background: #f1f1f1;
+}
+  
+  .formaPopUpIniciarSesion input:focus {
+    background-color: #ddd;
+    outline: none;
+  }
+
+  .formaPopUpIniciarSesion .boton {
+    background-color: #4CAF50;
+    color: white;
+    border-radius: 5px;
+    padding: 16px 20px;
+    border: none;
+    cursor: pointer;
+    width: 40%;
+    margin-bottom:10px;
+    opacity: 0.8;
+    margin-top:10px;
+    margin-left: 6%;
+  }
+  
+  .formaPopUpIniciarSesion .Rojo {
+    background-color: red;
+  }
+  
+  .formaPopUpIniciarSesion .boton:hover, .open-button:hover {
+    opacity: 1;
+  }
+
+  .cerrarIniciarSesion{ 
+    position: absolute;
+    top: 2%;
+    right: 5%;
+    font-size: 25px;
+    color: rgb(0, 0, 0);
+    transition: all 200ms;
+}
+
+.contenidoPopUpIniciarSesion .cerrarIniciarSesion {
+    background: white;
+    color: black;
+    padding: 10px 10px;
+    border: none;
+    cursor: pointer;
+    width: 0.5%;
+    float: right;
+    opacity: 0.8;
+    text-align: center;
+}
+
+.TituloInicioSesionReg{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-align: center;
+    margin-top: 10%; 
+}
+.iconosInicioSesion{
+    vertical-align:top;
+    margin-left: 1%;
+}
+#idIni{
+    width: 10%;
+    height: 10%;
+    margin-top: 2%;
+}
+.TituloInicioSesionReg2{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-align: center;
+    margin-top: 2%; 
+}
+.redesSociales{
+    text-align: center;
+}
+#idRedesSociales{
+    width: 14%;
+    height: 14%;
+}
+#idRedesSociales2{
+    width: 14%;
+    height: 14%;
+    margin-left: 3%;
+}
+
+/*Pop ups pagina principal*/
+/*Ajustes*/
+
+.tituloAjustes{
+    margin-left: 5%;
+    margin-top: 5%;
+    color: rgb(0, 0, 0);
+    text-shadow: 1px 1px rgb(156, 156, 156);
+    font-size: 30px;
+    font-family: sans-serif;
+    height:auto;
+    position:relative;
+    display:inline-block;
+    vertical-align:top;
+}
+.iconosEncabezado{
+    border : none;
+    background: none;
+}
+.iconoCambiarTema{
+    border : none;
+    background: none;
+    cursor: pointer;
+}
+.iconoCambioTema{
+    float: left;
+    margin-top: 5%;
+    width:12%;
+    height: 12%;
+    margin-left:3%;
+}
+.textoCambioTema{
+    margin-left: 5%;
+    margin-top: 10%;
+    float: left;
+    text-shadow: 0.5px 0.5px rgb(156, 156, 156);
+    color: rgb(0, 0, 0);
+    font-size: 20px;
+    font-family: sans-serif;
+}
+.iconosAjustes{
+    margin-top: 5%;
+    width:12%;
+    height: 12%;
+    margin-left:3%;
+    height:auto;
+    position:relative;
+    display:inline-block;
+    vertical-align:top;
+}
+
+.textoAjustes{
+    margin-left: 5%;
+    margin-top: 10%;
+    text-shadow: 0.5px 0.5px rgb(156, 156, 156);
+    color: rgb(0, 0, 0);
+    font-size: 20px;
+    font-family: sans-serif;
+    height:auto;
+    position:relative;
+    display:inline-block;
+    vertical-align:top;
+}
+
+.formaPopUpAjustes {
+    display: none;
+    position: fixed;
+    height: auto;
+    z-index: 9;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.contenidoPopUpAjustes {
+    border-radius: 20px;
+    max-width: 500px;
+    padding: 1%; 
+    box-shadow: rgb(180, 180, 180);
+    background: white;
+    position: relative; 
+    margin: 10% auto;
+}
+
+.formaPopUpAjustes .boton:hover, .open-button:hover {
+    opacity: 1;
+}
+
+.cerrarAjustes{ 
+    position: absolute;
+    top: 2%;
+    right: 5%;
+    font-size: 25px;
+    color: rgb(0, 0, 0);
+    transition: all 200ms;
+}
+
+.contenidoPopUpAjustes .cerrarAjustes {
+    background: white;
+    color: black;
+    padding: 10px 10px;
+    border: none;
+    cursor: pointer;
+    width: 0.5%;
+    float: right;
+    opacity: 0.8;
+    text-align: center;
+}
+
+.aceptarAjustes{ 
+    position: absolute;
+    top: 82%;
+    right: 15%;
+    font-size: 25px;
+    color: rgb(0, 0, 0);
+    transition: all 200ms;
+}
+
+.contenidoPopUpAjustes .aceptarAjustes {
+    background: white;
+    color: black;
+    padding: 10px 10px;
+    border: none;
+    cursor: pointer;
+    width: 0.5%;
+    float: right;
+    opacity: 0.8;
+    text-align: center;
+}
+
+/*PopUp Añadir carpeta*/
+.formaPopUpAddCarpeta {
+    display: none;
+    position: fixed;
+    height: auto;
+    z-index: 9;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.contenidoPopUpAddCarpeta {
+    border-radius: 20px;
+    max-width: 500px;
+    font-family: sans-serif;
+    padding: 1%; 
+    box-shadow: rgb(180, 180, 180);
+    background: white;
+    position: relative; 
+    margin: 10% auto;
+}
+
+.formaPopUpAddCarpeta input {
+    width: 90%;
+    padding: 15px;
+    border-radius: 20px;
+    margin: 5px 0 22px 0;
+    border: none;
+    background: #f1f1f1;
+}
+  
+  .formaPopUpAddCarpeta input:focus {
+    background-color: #ddd;
+    outline: none;
+  }
+
+  .formaPopUpAddCarpeta .boton {
+    background-color: #4CAF50;
+    color: white;
+    border-radius: 20px;
+    padding: 16px 20px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    margin-bottom:10px;
+    opacity: 0.8;
+    margin-top:10px;
+  }
+  
+  .formaPopUpAddCarpeta .boton:hover, .open-button:hover {
+    opacity: 1;
+  }
+
+  .cerrarAddCarpeta{ 
+    position: absolute;
+    top: 2%;
+    right: 5%;
+    font-size: 25px;
+    color: rgb(0, 0, 0);
+    transition: all 200ms;
+}
+
+.contenidoPopUpAddCarpeta .cerrarAddCarpeta {
+    background: white;
+    color: black;
+    padding: 10px 10px;
+    border: none;
+    cursor: pointer;
+    width: 0.5%;
+    float: right;
+    opacity: 0.8;
+    text-align: center;
+}
+
+.tituloAddEventoPopUp{
+    margin-left: 2%;
+    color: rgb(0, 0, 0);
+    text-shadow: 1px 1px rgb(156, 156, 156);
+    font-size: 30px;
+    font-family: sans-serif;
+    height:auto;
+    vertical-align:top;
+}
+
+.textoAddEventoPopUp{
+    margin-top: 3.5%;
+    text-shadow: 0.5px 0.5px rgb(156, 156, 156);
+    color: rgb(0, 0, 0);
+    font-size: 15px;
+    font-family: sans-serif;
+    height:auto;
+    position:relative;
+    display:inline-block;
+    vertical-align:top;
+}
+
+.textoAlarmaPopUp{
+    margin-top: 2.5%;
+    text-shadow: 0.5px 0.5px rgb(156, 156, 156);
+    color: rgb(0, 0, 0);
+    font-size: 15px;
+    font-family: sans-serif;
+    height:auto;
+    position:relative;
+    display:inline-block;
+    vertical-align:top;
+    margin-left: 20%;
+}
+
+.iconosAddEventoPopUp{
+    height:auto;
+    position:relative;
+    display:inline-block;
+    vertical-align:top;
+    width: 5%;
+}
+
+#idIconosAddEventoPopUp{
+    width: 10%;
+    height: 10%;
+    margin-right: 5%;
+    vertical-align:top; 
+}
+
+/*Pop up añadir evento*/
+.formaPopUpAddEvento {
+    display: none;
+    position: fixed;
+    height: auto;
+    z-index: 9;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.contenidoPopUpAddEvento {
+    border-radius: 10px;
+    max-width: 800px;
+    padding: 1%; 
+    margin-top: 2.5%;
+    box-shadow: rgb(180, 180, 180);
+    background: #d0d5d9;
+    position: relative; 
+    height: 800px;
+    overflow: auto;
+    margin-left: 25%;
+}
+
+.contenidoPopUpAddEvento::-webkit-scrollbar {
+    width: 12px;
+}
+.contenidoPopUpAddEvento::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
+    border-radius: 10px;
+}
+.contenidoPopUpAddEvento::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
+}
+
+.formaPopUpAddEvento input {
+    width: 65%;
+    padding: 15px;
+    color: rgb(255, 255, 255);
+    border-radius: 5px;
+    border: none;
+    margin-bottom: 2%;
+    margin-top: 2%;
+    background: #606264;
+    position:relative;
+    display:inline-block;
+    vertical-align:top;
+}
+  
+  .formaPopUpAddEvento input:focus {
+    background-color: #272727;
+    outline: none;
+  }
+
+  .formaPopUpAddEvento .boton {
+    background-color: #4CAF50;
+    color: white;
+    border-radius: 20px;
+    padding: 16px 20px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    margin-bottom:10px;
+    opacity: 0.8;
+    margin-top:10px;
+  }
+  
+  .formaPopUpAddEvento .Rojo {
+    background-color: red;
+  }
+  
+  .formaPopUpAddEvento .boton:hover, .open-button:hover {
+    opacity: 1;
+  }
+
+  .cerrarAddEvento{ 
+    position: absolute;
+    top: 2%;
+    right: 5%;
+    font-size: 25px;
+    color: rgb(0, 0, 0);
+    transition: all 200ms;
+}
+
+.contenidoPopUpAddEvento .cerrarAddEvento {
+    
+    background:none;
+    padding: 10px 10px;
+    border: none;
+    cursor: pointer;
+    width: 0.5%;
+    float: right;
+    opacity: 0.8;
+    text-align: center;
+}
+
+/*Terminos*/
+.tituloTerminos{
+    margin-left: 5%;
+    margin-top: 5%;
+    color: rgb(0, 0, 0);
+    text-shadow: 2px 2px rgb(156, 156, 156);
+    font-size: 30px;
+    font-family: sans-serif;
+    height:auto;
+    position:relative;
+    display:inline-block;
+    vertical-align:top;
+}
+
+.iconosTerminos{
+    margin-top: 5%;
+    width:12%;
+    height: 12%;
+    margin-left:1%;
+    height:auto;
+    position:relative;
+    display:inline-block;
+    vertical-align:top;
+}
+
+.textoTerminos{
+    margin-left: 1%;
+    margin-top: 10%;
+    text-shadow: 0.5px 0.5px rgb(156, 156, 156);
+    color: rgb(0, 0, 0);
+    font-size: 20px;
+    font-family: sans-serif;
+    height:auto;
+    position:relative;
+    display:inline-block;
+    vertical-align:top;
+}
+
+.textoRelleno{
+    margin-left: 5%;
+    color: rgb(0, 0, 0);
+    font-size: 18px;
+    font-family: "Times New Roman", Times, serif;
+}
+
+
+.formaPopUpTerminos {
+    display: none;
+    position: fixed;
+    height: auto;
+    z-index: 9;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.contenidoPopUpTerminos {
+    border-radius: 20px;
+    max-width: 500px;
+    padding: 1%; 
+    box-shadow: rgb(180, 180, 180);
+    background: white;
+    position: relative; 
+    margin: 10% auto;
+}
+
+.formaPopUpTerminos .boton:hover, .open-button:hover {
+    opacity: 1;
+}
+
+.cerrarTerminos{ 
+    position: absolute;
+    top: 2%;
+    right: 5%;
+    font-size: 25px;
+    color: rgb(0, 0, 0);
+    transition: all 200ms;
+}
+
+.contenidoPopUpTerminos .cerrarTerminos {
+    background: white;
+    color: black;
+    padding: 10px 10px;
+    border: none;
+    cursor: pointer;
+    width: 0.5%;
+    float: right;
+    opacity: 0.8;
+    text-align: center;
+}
+
+.aceptarTerminos{ 
+    position: absolute;
+    top: 82%;
+    right: 15%;
+    font-size: 25px;
+    color: rgb(0, 0, 0);
+    transition: all 200ms;
+}
+
+.contenidoPopUpTerminos .aceptarTerminos {
+    background: white;
+    color: black;
+    padding: 10px 10px;
+    border: none;
+    cursor: pointer;
+    width: 0.5%;
+    float: right;
+    opacity: 0.8;
+    text-align: center;
+}

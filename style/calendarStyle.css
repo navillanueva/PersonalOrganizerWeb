@@ -1,0 +1,208 @@
+/*Style de la funcionalidad del calendario*/
+.cerrarCalendario{
+  background: none;
+  cursor: pointer;
+  border: none;
+}
+
+/*Estilo del div que contiene el calendario y todos los eventos*/
+.calendarioEventos{
+  height: 393px;
+  width: 1000px;
+  position: relative;
+  border-radius: 20px;
+  max-width: 500px;
+  padding: 1%; 
+  box-shadow: rgb(180, 180, 180);
+  margin-left: 40%;
+  margin-top: 2%;
+  font-family: sans-serif;
+}
+
+#idcalendarioEventos{
+  display: none;
+}
+
+/*Estilo del calendario*/
+.calendar {
+  width: 350px;
+  background-color: #212121;
+  font-family: sans-serif;
+  color: rgb(255, 255, 255);
+  float: left;
+}
+
+/*Estilo del mes*/
+.calendar__month {
+  font-size: 20px;
+  font-weight: 800;
+  padding: 10px 0;
+  width: 100%;
+  position: relative;
+}
+
+.cal-month__previous,
+.cal-month__next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
+  text-align: center;
+}
+
+/*Estilo de los simbolos de cambio de mes*/
+.cal-month__next:hover,
+.cal-month__previous:hover{
+    background-color: #42A5F5;
+    box-shadow: 0 5px 5px -5px rgba(0,0,0,0.75);
+    box-shadow: 0 5px 5px -5px rgb(255, 255, 255);
+    border-radius: 50%;
+    font-weight: 800;
+    color: rgb(255, 255, 255);
+}
+
+.cal-month__next {
+  right: 0;
+}
+
+.cal-month__current {
+  text-align: center;
+  color: rgb(255, 255, 255);
+}
+
+/*Estilo de los dias*/
+.cal-head__day,
+.cal-body__day {
+  /*Se esta ignorando inline-block, puesto que es su funcion,
+    pero en este casao lo mantenemos para solucionar un bug de IE6,
+    tal y como se explica en el siguiente enlace:
+    https://stackoverflow.com/questions/6351119/css-floating-inline-elements-960-gs/6351155#6351155*/
+  display: inline-block;
+  float: left;
+  width: 50px;
+  height: 50px;
+  text-align: center;
+}
+
+.cal-body__week,
+.calendar__head {
+  display: block;
+  height: 50px;
+  width: 350px;
+}
+
+.calendar__head {
+  line-height: 50px;
+  position: relative;
+}
+
+/*Estilo de la linea de separacion del calendario*/
+.calendar__head:after{
+    content: ' ';
+    position: absolute;
+    bottom: 0;
+    left: 3%;
+    right: 3%;
+    height: 1px;
+    background-color: rgb(255, 255, 255);
+}
+
+.cal-body__day {
+  color: #777;
+  line-height: 50px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.cal-day__month--current {
+  color: rgb(255, 255, 255);
+}
+
+.cal-day__day--today {
+  font-weight: 800;
+  color: #42A5F5;
+}
+
+.cal-day__day--selected {
+  background-color: #42A5F5;
+  box-shadow: 0 5px 10px -5px rgba(0, 0, 0, .75);
+  border-radius: 50%;
+  color: #111;
+}
+
+/*Estilo del div que contiene todos los eventos*/
+.eventos{
+  width: 350px;
+  height: 393px;
+  background-color: #2E2E2E;
+  color: rgb(255, 255, 255);
+  float: left;
+  overflow: auto;
+}
+
+.cabeceraEventos{
+width: 350px;
+height: 83px;
+padding-top: 10px;
+position: relative;
+}
+
+.cabeceraEventosTarea{
+  float: left;
+  text-align: center;
+  width: 45%;
+  margin-left: 5%;
+}
+
+.cabeceraEventosFechas{
+  float: left;
+  text-align: center;
+  width: 45%;
+}
+
+/*Estilo de cada evento individual*/
+.evento{
+  position: relative;
+  height: 100px;
+  margin-left: 3%;
+  margin-right: 3%;
+}
+
+.eventoTarea{
+  height: 100px;
+  width: 45%;
+  float: left;
+  margin-left: 3%;
+  text-align: center;
+}
+
+.eventoFechas{
+  height: 100px;
+  width: 45%;
+  float: left;
+  margin-left: 4%;
+}
+
+.eventoFin,
+.eventoInicio{
+  height: 30%;
+  text-align: center;
+}
+
+.cabeceraEventos:after,
+.evento:after{
+    content: ' ';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background-color: rgb(255, 255, 255);
+}
+
+.cabeceraEventos:after{
+  left: 3%;
+  right: 3%;
+}
